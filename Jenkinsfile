@@ -19,5 +19,26 @@ pipeline {
                 sh 'mvn test'
             }
         }
+
+        stage('Build & Push Docker Image') {
+            steps {
+                script {
+                    def imageName = "nikhil6372/ci-cd-java-app"
+                    def tag = "${BUILD_NUMBER}"
+
+                    withCredentials([usernamePassword(
+                        credentialsId: 'dockerhub-creds',
+                        usernameVariable: 'DOCKER_USER',
+                        passwordVariable: 'DOCKER_PASS'
+                    )]) {
+                        sh """
+                            docker build -t $imageName:$tag .
+                            echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+                            docker push $imageName:$tag
+                        """
+                    }
+                }
+            }
+        }
     }
 }
