@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        IMAGE_NAME = "nikhil6372/ci-cd-app"
-    }
-
     stages {
         stage('Clone Repository') {
             steps {
@@ -12,9 +8,7 @@ pipeline {
             }
         }
 
-    } 
-
-    stage('Build with Maven') {
+        stage('Build with Maven') {
             steps {
                 sh 'mvn clean install'
             }
@@ -25,4 +19,5 @@ pipeline {
                 sh 'mvn test'
             }
         }
- }
+    }
+}
