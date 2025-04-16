@@ -27,7 +27,7 @@ pipeline {
                     def tag = "${BUILD_NUMBER}"
 
                     withCredentials([usernamePassword(
-                        credentialsId: 'dockerhub-cred',
+                        credentialsId: 'jenkins-token',
                         usernameVariable: 'DOCKER_USER',
                         passwordVariable: 'DOCKER_PASS'
                     )]) {
