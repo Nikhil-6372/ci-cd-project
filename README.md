@@ -19,6 +19,33 @@ This project demonstrates a complete end-to-end CI/CD pipeline built using moder
 4. **Build Docker Image** – Creates a Docker image of the app
 5. **Push to Docker Hub** – Uploads image to Docker Hub
 6. **Deploy to Kubernetes** – Deploys the image using a `Deployment` and `Service`
+   
+<h4>## 📁 Folder Structure</h4>
+ci-cd-project/ ├── Jenkinsfile ├── Dockerfile ├── deployment.yml ├── service.yml └── src/
+
+
+<h5>## 📝 How to Use</h5>
+
+1. Set up Jenkins on an Ubuntu server
+2. Create a Jenkins pipeline and use the `Jenkinsfile`
+3. Add Docker Hub credentials in Jenkins
+4. Install Minikube and kubectl
+5. Apply `deployment.yml` and `service.yml` to deploy the app
+
+<h6>## ✅ Results</h6>
+
+- Docker images are automatically created and pushed to Docker Hub.
+- Java app is deployed to a local Kubernetes cluster.
+- CI/CD pipeline runs automatically on every code change.
+
+<h7>## 📦 Docker Image</h7>
+
+You can find the Docker images here:  
+👉 [Docker Hub - nikhil6372/ci-cd-java-app](https://hub.docker.com/repository/docker/nikhil6372/ci-cd-java-app)
+
+---
+
+
 
 
 
